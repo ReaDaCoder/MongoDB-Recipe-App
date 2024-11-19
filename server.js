@@ -2,12 +2,14 @@ import "dotenv/config"
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import connectDB from "./config/database.js";
 
 const app = express();
 const port = process.env.PORT || 80880
 
-app.use(cors())
-app.use(express.json)
+app.use(cors());
+app.use(express.json);
+connectDB
 
 
 mongoose.connect(process.env.MONGO_URI)
@@ -15,4 +17,4 @@ mongoose.connect(process.env.MONGO_URI)
 .catch((err) =>console.err(err)
 ));
 
-app.listen(PORT, ()=> console.log(`Server started on ${port}`))
+app.listen(port, ()=> console.log(`Server started on ${port}`))
