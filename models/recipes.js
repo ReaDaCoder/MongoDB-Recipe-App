@@ -7,5 +7,7 @@ const recipeSchema = new mongoose.Schema({
     category: {type: String, required: true},
     preparationTime : {type: Number, required: true},
     cookingTime: {type: Number, required: true},
-    servings: {type: String, required: true}
+    servings: {type: Number, required: true}
 })
+
+export default mongoose.model("Recipe", recipeSchema);
